@@ -1,0 +1,29 @@
+1. Autenticación de Usuario
+Implementar un sistema de login de usuarios.
+Se puede usar alguna de las siguientes estrategias:
+Propias de Laravel: Laravel Breeze, Laravel Sanctum, Laravel Passport.
+Estándares: Basic Auth, OAuth2.
+El backend deberá proteger cada API del CRUD:
+Si la petición no incluye un token válido, deberá devolver un error 401 Unauthorized.
+El frontend (Vue.js) deberá manejar el flujo de login y consumo de APIs con token.
+
+2. Proyecto Multitenant
+Modifique el sistema para volverlo multitenant.
+Definición breve (para examen): Multitenancy es un modelo de arquitectura en el que una misma aplicación puede servir a múltiples clientes (tenants), manteniendo aislados sus datos. En este caso, cada subdominio debe apuntar a un esquema de base de datos diferente.
+Ajustar la configuración para que el sistema funcione de la siguiente manera:
+Un subdominio (empresa1.midominio.com, empresa2.midominio.com) debe conectarse a un esquema de base de datos independiente.
+Los usuarios de un tenant no deben ver datos de otro tenant.
+
+3. Despliegue en AWS EC2
+El proyecto debe desplegarse en una instancia EC2 de AWS.
+Requerimientos:
+Configuración de servidor (PHP, MySQL, Nginx/Apache, Node).
+Subida del proyecto completo y funcionamiento del CRUD con autenticación y multitenant.
+La máquina debe permanecer encendida al menos 1 semana después de la entrega para verificar el despliegue.
+
+--Entrega del Proyecto--
+    -Repositorio en GitHub.
+En el repositorio deberán trabajar sobre una rama llamada:
+    -feature/segundoParcial
+Se evaluará la trazabilidad de commits, es decir, no se aceptará que todo el proyecto se suba en un solo commit final.
+Crear dentro de la estructura del proyecto en laravel una carpeta /docs donde documente lo mejor que pueda la funcionalidad terminada de su proyecto.

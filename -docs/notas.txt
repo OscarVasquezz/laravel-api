@@ -21,6 +21,10 @@ php  artisan key:generate
 ...> creando modelo de autenticacion para nuestra api con sanctun
 composer  require  laravel/sanctum
 php  artisan vendor:publish --provider="Laravel\Sanctum\SanctumServiceProvider"
-...> 
+...> Crearemos el entoprno de tablas y migraremos, para esto la base de datos debe estar configurada correctamente
 php  artisan  make:migration create_usuarios_table
 php artisan migrate
+
+...> iniciaremos nunestro servidor
+php artisan serve
+...> [http://127.0.0.1:8000]
