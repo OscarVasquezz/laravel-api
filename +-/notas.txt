@@ -1,0 +1,26 @@
+...> cargar repositorio a Git
+…or create a new repository on the command line
+echo "# laravel-api" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/OscarVasquezz/laravel-api.git
+git push -u origin main
+
+...> actualiar repositorio en git
+…or push an existing repository from the command line
+git remote add origin https://github.com/OscarVasquezz/laravel-api.git
+git branch -M main
+git push -u origin main
+
+...> configurando variables de entorno duplicando el archivo
+cp  .env.example  .env
+...> generando llave unica para nuestros tokens
+php  artisan key:generate
+...> creando modelo de autenticacion para nuestra api con sanctun
+composer  require  laravel/sanctum
+php  artisan vendor:publish --provider="Laravel\Sanctum\SanctumServiceProvider"
+...> 
+php  artisan  make:migration create_usuarios_table
+php artisan migrate
