@@ -21,7 +21,8 @@ class Usuario extends Authenticatable
     ];
 
     // Ocultar el password al devolver el modelo en JSON
+    // esto en caso no deseamos mostrar datos al listar, datos privados
     protected $hidden = [
-        'password',
+        'password', 'id','email','created_at',
     ];
 }
