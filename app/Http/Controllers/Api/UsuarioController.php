@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
 
 class UsuarioController extends Controller
-{
+{        
     /**
      * Display a listing of the resource.
      */
@@ -31,7 +31,7 @@ class UsuarioController extends Controller
      */
     public function store(Request $request)
     {
-        $validated = $request->validate([
+        $validated = $request->validate([//validando estructura de datos
             'nombre' => 'required|string|max:150',
             'email' => 'required|email|max:150|unique:usuarios,email',
             'password' => 'required|string|min:6',
@@ -48,17 +48,17 @@ class UsuarioController extends Controller
             ], 400);
         }
 
-
+        //enciptando contraseña
         $validated['password'] = Hash::make($validated['password']);
-
+        //insertando informacion
         $usuario = Usuario::create($validated);
-        if (!$usuario) {
+        if (!$usuario) {//en caso de que exista un error mostrara un mensaje
             return response()->json([
                 'message' => 'Error al crear el usuario',
                 'status' => false
             ], 500);
         }
-        return response()->json([
+        return response()->json([//muestra un mensaje si se registro con exito
             'message' => 'Usuario creado correctamente',
             'status' => true
         ], 200);
@@ -83,18 +83,18 @@ class UsuarioController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, string $id)//actualizar datos
     {
         $usuario = Usuario::findOrFail($id);
 
-        if ($usuario->rol !== 'admin') {
+        if ($usuario->rol !== 'admin') {//restringiendo a usuarios para segun rol
             return response()->json([
                 'message' => 'Solo los usuarios con rol admin pueden ser actualizados.',
                 'status' => false
             ], 422);
         }
 
-        $validated = $request->validate([
+        $validated = $request->validate([//si es admin, se modifca los verifica la estructura
             'nombre' => 'sometimes|required|string|max:150',
             'email' => 'sometimes|required|email|max:150|unique:usuarios,email,' . $usuario->id,
             'password' => 'nullable|string|min:6',
@@ -118,7 +118,7 @@ class UsuarioController extends Controller
 
         return response()->json([
             'message' => 'Usuario actualizado correctamente',
-            'data' => $usuario
+            'data' => $usuario//muestra la informacion del usuario
         ], 200);
     }
 
