@@ -1,4 +1,4 @@
-<video id="yoVideo" poster="https://drive.google.com/file/d/1SV001my3nyU22DDBkcLR-UYA0l_jV1C8/view?usp=sharing" preload="auto" controls>
+<video id="yoVideo" poster="https://drive.google.com/file/d/1cFuuAspPJcmy8x6ZEqBSq0QwW6MP5tRn/view?usp=sharing" preload="auto" controls>
     <source src="https://drive.google.com/file/d/1SV001my3nyU22DDBkcLR-UYA0l_jV1C8/view?usp=sharing">
 </video>
 
